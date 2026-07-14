@@ -40,15 +40,42 @@ while choice != 0:
     above 300 = 8.50
 '''
 
-units=int(input("Enter Units: "))
-if units<=50:
-    bill=units*3.25
-elif units<=100:
-    bill=(50*3.25)+((units-50)*4.80)
-elif units<=200:
-    bill=(50*3.25)+(50*4.80)+((units-100)*6.30)
-elif units<=300:
-    bill=(50*3.25)+(50*4.80)+(100*6.30)+((units-200)*7.40)
-else:
-    bill=(50*3.25)+(50*4.80)+(100*6.30)+(100*7.40)+((units-300)*8.50)
-print("Electricity Bill =", bill)
+# units=int(input("Enter Units: "))
+# if units<=50:
+#     bill=units*3.25
+# elif units<=100:
+#     bill=(50*3.25)+((units-50)*4.80)
+# elif units<=200:
+#     bill=(50*3.25)+(50*4.80)+((units-100)*6.30)
+# elif units<=300:
+#     bill=(50*3.25)+(50*4.80)+(100*6.30)+((units-200)*7.40)
+# else:
+#     bill=(50*3.25)+(50*4.80)+(100*6.30)+(100*7.40)+((units-300)*8.50)
+# print("Electricity Bill =", bill)
+
+
+f=open("marks","r")
+for line in f:
+    data=line.strip().split()
+    name=data[0]
+    fail=[]
+    english=int(data[1])
+    science=int(data[2])
+    math=int(data[3])
+    if 40>english:
+        fail.append("e")
+    if 40>science:
+        s=name
+        fail.append("s")
+    if 40>math:
+        m=name
+        fail.append("m")
+    
+    if len(fail)==0:
+        total=data[1]+data[2]+data[3]
+        print(name,total)
+
+    else:
+        print(name,",".join(fail))
+
+f.close()
