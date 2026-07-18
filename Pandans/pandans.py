@@ -8,10 +8,25 @@ data = {
 }
 
 df = pd.DataFrame(data)
-print(df.isnull().sum())
-df["Marks"]=df["Marks"].fillna(df["Marks"].mean())
-df["Marks"] = df["Marks"].fillna(df["Marks"].median())
-df["City"] = df["City"].fillna(df["City"].mode()[0])
+
+print(df.isnull().sum()) #return null row 
+
+
+df["Marks"]=df["Marks"].fillna(df["Marks"].mean()) #fill the NAN value with mean to find mean propurse 
+print(df["Marks"].mean()) #after fillna mean 
+
+
+df["Marks"] = df["Marks"].fillna(df["Marks"].median()) #fill the NAN value with median to find mean propurse 
+print(df["Marks"].median()) #after fillna median
+
+df["City"] = df["City"].fillna(df["City"].mode()[0]) #fill the NAN value with mode to find mean propurse 
+print(df["City"].mode()) #after fillna median
+
+
+
+
+
+print(df["Name"])
 print(df["Marks"])
 print(df["City"])
 df.replace("Diu","Daman")
