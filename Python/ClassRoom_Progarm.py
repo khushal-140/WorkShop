@@ -1,35 +1,12 @@
 employees=[
-    {
-    "name": "Amit",
-    "department": "engineering",
-    "salary": 75000
-    },
-    {
-          "name": "Sneha",
-          "department": "engineering",
-          "salary": 82000
-      },
-      {
-          "name": "Rahul",
-          "department": "sales",
-          "salary": 54000
-      },
-      {
-          "name": "Priya",
-          "department": "sales",
-          "salary": 61000
-      }
-      ]
+    {"name": "Abhay","department": "engineering","salary":85000},
+    {"name": "Khushal","department": "engineering","salary": 87000},
+    {"name": "Dhruvil","department": "sales","salary": 68000},
+    {"name": "Vyom","department": "sales","salary": 64000}
+    ]
 print("Employee Details:")
-
-
-
-
-
-
 dic={}
 count=0
-
 for employee in employees:
     department = employee["department"]
     salary = employee["salary"]
@@ -38,23 +15,23 @@ for employee in employees:
     if department not in dic:
         dic[department] = {"count": 0,
                            "total_salary": salary,
-                           "highest_salary": salary,
-                           "highest_salary_employee": name}
+                           "max_salary": salary,
+                           "max_salary_employee": name}
 
     else:
         dic[department]["count"] += 1
         dic[department]["total_salary"] += salary
         
-        if salary > dic[department]["highest_salary"]:
-            dic[department]["highest_salary"] = salary
-            dic[department]["highest_salary_employee"] = name
+        if salary > dic[department]["max_salary"]:
+            dic[department]["max_salary"] = salary
+            dic[department]["max_salary_employee"] = name
 
-# results = {}
-# for department in dic:
-#     count =dic[department]["count"]
-#     total_salary = dic[department]["total_salary"]/count
-#     highest_salary = dic[department]["highest_salary"]
+results = {}
+for department in dic:
+    count =dic[department]["count"]
+    avg_salary = dic[department]["total_salary"]/count
+    highest_employee_name = dic[department]["max_salary_employee"]
     
-#     results[department] = (count, total_salary, highest_salary)
+    results[department] = (count, avg_salary, highest_employee_name)
     
-# print(results)
+print(results)
